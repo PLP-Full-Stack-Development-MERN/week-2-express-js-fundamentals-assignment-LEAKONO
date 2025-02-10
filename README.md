@@ -1,93 +1,101 @@
-**Week 2: Express.js Fundamentals Assignment**
+# Express.js Fundamentals Assignment
 
-**Objective:**
+## Project Overview
+This project is an Express.js-based RESTful API that implements fundamental concepts of routing, middleware, controllers, and error handling. The API manages user and product resources, allowing basic CRUD operations.
 
-- Apply Express.js concepts learned throughout the week.
-- Develop hands-on experience with creating routes, middleware, and API endpoints.
-- Understand and implement RESTful APIs.
+## Features
+- RESTful API routes for users and products.
+- Custom middleware for logging requests.
+- Environment variable management using `dotenv`.
+- Global error-handling middleware.
+- Organized project structure for maintainability.
 
-**Instructions:**
+## Technologies Used
+- Node.js
+- Express.js
+- MongoDB (Mongoose for ODM)
+- Dotenv (for environment variables)
+- Postman (for API testing)
 
-1. **Setup Express.js Project:**
+## Project Structure
+```
+express-assignment/
+│-- routes/
+│    ├── userRoutes.js
+│    ├── productRoutes.js
+│-- middleware/
+│    ├── logger.js
+│-- controllers/
+│    ├── userController.js
+│    ├── productController.js
+│-- models/
+│    ├── User.js
+│    ├── Product.js
+│-- index.js
+│-- package.json
+│-- .env
+│-- README.md
+```
 
-   - Install Node.js using NVM.
-   - Create a new project folder named `express-assignment`.
-   - Initialize a Node.js project using:
-     ```sh
-     npm init -y
-     ```
-   - Install necessary dependencies:
-     ```sh
-     npm install express dotenv
-     ```
+## Installation
 
-2. **Project Structure:**
+### Prerequisites
+- Node.js (installed via NVM)
+- MongoDB (running locally or via cloud)
 
-   - Organize your project files with a clear folder structure:
-     ```
-     express-assignment/
-     │-- routes/
-     │    ├── userRoutes.js
-     │    ├── productRoutes.js
-     │-- middleware/
-     │    ├── logger.js
-     │-- controllers/
-     │    ├── userController.js
-     │    ├── productController.js
-     │-- index.js
-     │-- package.json
-     │-- README.md
-     │-- .env
-     ```
+### Steps
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/PLP-Full-Stack-Development-MERN/week-2-express-js-fundamentals-assignment-LEAKONO.git
+   cd express-assignment
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Create a `.env` file and configure environment variables:
+   ```env
+   PORT=5000
+   MONGO_URI=mongodb://localhost:27017/product
+   JWT_SECRET=mysecretkey
+   ```
+4. Start the server:
+   ```sh
+   node index.js
+   ```
 
-3. **Create Routes:**
+## API Endpoints
 
-   - Create `userRoutes.js` and `productRoutes.js` inside the `routes/` folder.
-   - Implement RESTful routes for users and products (GET, POST, PUT, DELETE).
-   - Ensure proper usage of route parameters and query strings.
+### Users API
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| GET    | `/users` | Get all users |
+| POST   | `/users` | Create a new user |
+| PUT    | `/users/:id` | Update a user by ID |
+| DELETE | `/users/:id` | Delete a user by ID |
 
-4. **Implement Middleware:**
+### Products API
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| GET    | `/products` | Get all products |
+| POST   | `/products` | Create a new product |
+| PUT    | `/products/:id` | Update a product by ID |
+| DELETE | `/products/:id` | Delete a product by ID |
 
-   - Create a custom middleware function in `middleware/logger.js` to log request details (method, URL, timestamp).
-   - Apply middleware globally to all routes.
+## Middleware
+- **Logger Middleware**: Logs HTTP requests (method, URL, and timestamp).
+- **Global Error Handler**: Handles and formats errors gracefully.
 
-5. **Develop Controllers:**
+## Testing
+- Use Postman or cURL to test API endpoints.
+- Example request using cURL:
+  ```sh
+  curl -X GET http://localhost:5000/products
+  ```
 
-   - Create controller functions in `controllers/userController.js` and `controllers/productController.js`.
-   - Implement business logic to handle requests and responses.
+## Contributing
+Feel free to fork the repository and submit pull requests for improvements.
 
-6. **Environment Variables:**
-
-   - Use `dotenv` to manage environment variables.
-   - Define variables such as `PORT` in the `.env` file and access them inside the application.
-
-7. **Error Handling:**
-
-   - Implement a global error-handling middleware to catch and respond to errors gracefully.
-
-8. **Testing:**
-
-   - Run the server using:
-     ```sh
-     node index.js
-     ```
-   - Test API endpoints using Postman or cURL.
-   - Verify routes, middleware functionality, and error handling.
-
-9. **Documentation:**
-
-   - Add a `README.md` with instructions on setting up and running the project.
-   - Document available API endpoints with descriptions and example requests.
-
-10. **Submission:**
-
-   - Push your code to your GitHub repository.
-
-**Evaluation Criteria:**
-
-- Correct implementation of Express routes and middleware.
-- Proper error handling and logging.
-- Clean project structure and code organization.
-- Detailed documentation with clear instructions.
-- Successful testing of all endpoints.
+## License
+This project is open-source and available under the MIT License.
 
